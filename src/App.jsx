@@ -10,6 +10,7 @@ import Create from './User/Create';
 import HomePage from './User/HomePage';
 import EditPost from './User/EditPost';
 import SinglePost from './User/SinglePost';
+import LostUser from './LostUser';
 import UserPage from './User/UserPage';
 function App() {
   return (<AppContext>
@@ -26,6 +27,7 @@ function App() {
 
         <Route path="/user/:id" element={<UserPage />} />
         <Route path="/post/:id" element={<SinglePost />} />
+        <Route path="*" element={<LostUser />} />
       </Routes>
     </Router>
   </AppContext>);
