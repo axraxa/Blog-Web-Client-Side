@@ -1,0 +1,19 @@
+@use "colors";
+
+.postCreateForm{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: start;
+
+  input[type="text"],
+  textarea{
+    width: 100%;
+    font-size: 1rem;
+    padding: 5px;
+  }
+  .fileUpload{
+    position: relative;
+    text-align: center;
+  }
+}
