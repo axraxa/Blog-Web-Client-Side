@@ -36,7 +36,7 @@ export default function UserPage() {
         })
         .catch(err => console.log(err));
     }
-  }, [loading, token, validToken])
+  }, [loading, token, validToken, id])
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -101,8 +101,9 @@ export default function UserPage() {
   if (pageLoading) {
     return <section className="loadingScreen">{View}</section>;
   }
-  return <section>
+  return <section style={{ width: "100%" }}>
     <Header />
+
     <main className="postsContainer" style={{ justifyContent: "center", alignItems: "center" }}>
       {stories.length >= 1 && stories.map((each, index) => {
         return <div key={each._id} className="posts">

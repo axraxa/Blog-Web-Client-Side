@@ -140,7 +140,7 @@ export default function HomePage() {
   if (pageLoading) {
     return <section className="loadingScreen">{View}</section>;
   }
-  return <section>
+  return <section style={{ width: "100%" }}>
     <Header />
     <form className="postsContainer" style={{ justifyContent: "center", alignItems: "center", flexDirection: "row", columnGap: "10px" }}
       onSubmit={searchHandler}>

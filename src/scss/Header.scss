@@ -3,6 +3,7 @@ header{
   display: flex;
   align-items: center;
   padding: 25px;
+  flex-wrap: wrap;
   width: 100%;
   column-gap: 10px;
   background-color: colors.$primary-color;
