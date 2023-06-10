@@ -59,6 +59,10 @@ function Register() {
       </ul>
     }
   }
+  function googleRegisterHandler() {
+    window.open(`${API_LINK}/user/auth/google`, "_self")
+  }
+
   if (loading) {
     return <section className="loadingScreen">
       {View}
@@ -88,6 +92,12 @@ function Register() {
       </div>
       <ErrorContainer />
       <button type="submit">Register</button>
+      <div class="google-btn" onClick={googleRegisterHandler}>
+        <div class="google-icon-wrapper">
+          <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+        </div>
+        <p class="btn-text"><b>Register with Google</b></p>
+      </div>
       <h5>Already signed up ? <Link to="/" style={{ textDecoration: "none" }}>Log In</Link></h5>
     </form>
   </section>

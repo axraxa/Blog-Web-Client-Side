@@ -12,12 +12,15 @@ import EditPost from './User/EditPost';
 import SinglePost from './User/SinglePost';
 import LostUser from './LostUser';
 import UserPage from './User/UserPage';
+import TokenVerify from './TokenVerify';
 function App() {
   return (<AppContext>
     <Router>
       <Routes>
         <Route path='/' element={<Login />} />
+        <Route path='/:msg' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/tokenverify/:currentToken' element={<TokenVerify />} />
 
 
         <Route path="/home" element={<HomePage />} />

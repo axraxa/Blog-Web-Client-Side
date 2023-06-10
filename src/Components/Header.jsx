@@ -16,7 +16,7 @@ export default function Header() {
   }
   return <header>
     <Link to={`/user/${userData._id}`}>
-      <img src={`${HOST_LINK}/${userData.path}`} alt="profilepic" />
+      <img src={userData.isOauthUser ? `${userData.path}` : `${HOST_LINK}/${userData.path}`} alt="profilepic" />
     </Link>
     <p>{userData.name}</p>
     <Link to="/home">

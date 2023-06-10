@@ -30,4 +30,39 @@
   p{
     color: red;
   }
+.google-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 185px;
+  height: 40px;
+  background-color: colors.$google-blue;
+  border-radius: 2px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
+  padding: 0 5px  0 0 ;
+  cursor: pointer;
+  .google-icon-wrapper {
+    margin-top: 1px;
+    margin-left: 1px;
+    border-radius: 2px;
+    background-color: colors.$white;
+    padding: 10px ;
+  }
+  .google-icon {
+    width: 18px;
+    height: 18px;
+  }
+  .btn-text {
+    color: colors.$white;
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  &:hover {
+    box-shadow: 0 0 6px colors.$google-blue;
+  }
+  &:active {
+    background: colors.$button-active-blue;
+  }
 }
+}
+

@@ -115,7 +115,7 @@ export default function Details() {
       }} />
 
       <div>
-        <img src={`${HOST_LINK}/${userData.path}`} alt="" style={{ width: "50px", borderRadius: "50 %" }} />
+      <img src={userData.isOauthUser ? `${userData.path}` : `${HOST_LINK}/${userData.path}`} alt="profilepic" />
         <input type="file" onChange={(e) => setFile(e.target.files[0])} name="file" />
         <button onClick={changePicture}>Change Profile Picture</button>
       </div>

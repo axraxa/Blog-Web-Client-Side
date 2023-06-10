@@ -103,13 +103,12 @@ export default function UserPage() {
   }
   return <section style={{ width: "100%" }}>
     <Header />
-
     <main className="postsContainer" style={{ justifyContent: "center", alignItems: "center" }}>
       {stories.length >= 1 && stories.map((each, index) => {
         return <div key={each._id} className="posts">
           <div className="postHeader">
             <div className="postAuthor">
-              <img src={`${HOST_LINK}/${user.path}`} alt="" className="profilePic" />
+              <img src={user.isOauthUser ? `${user.path}` : `${HOST_LINK}/${user.path}`} className="profilePic" />
               <h3>{user.name}</h3>
             </div>
             <div style={{ display: "flex", columnGap: "10px" }}>

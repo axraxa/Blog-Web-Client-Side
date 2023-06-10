@@ -90,7 +90,11 @@ const SinglePost = () => {
       <div key={story._id} className="posts">
         <div className="postHeader">
           <div className="postAuthor">
-            <img src={`${HOST_LINK}/${story.author.path}`} alt="" className="profilePic" />
+            <img
+              src={story.author.isOauthUser ? `${story.author.path}` : `${HOST_LINK}/${story.author.path}`}
+              alt=""
+              className="profilePic"
+            />
             <h3>{story.author.name}</h3>
           </div>
           <div style={{ display: "flex", columnGap: "10px" }}>
@@ -115,7 +119,11 @@ const SinglePost = () => {
             return <div className="commentContainer" key={comment._id}>
               <div className="commentAuthorContainer">
                 <div>
-                  <img src={`${HOST_LINK}/${comment.author.path}`} alt="" />
+                  <Link to={`/user/${comment.author._id}`}>
+                    <img
+                      src={comment.author.isOauthUser ? `${comment.author.path}` : `${HOST_LINK}/${comment.author.path}`}
+                    />
+                  </Link>
                   <h4>{comment.author.name}</h4>
                 </div>
                 <button onClick={() => deleteComment(comment._id)}
@@ -130,7 +138,8 @@ const SinglePost = () => {
               e.preventDefault()
               submitComment(story._id)
             }}>
-            <img src={`${HOST_LINK}/${userData.path}`} alt=""
+            <img
+              src={userData.isOauthUser ? `${userData.path}` : `${HOST_LINK}/${userData.path}`}
             />
             <input type="text"
               value={comment} onChange={(e) => setComment(e.target.value)} />

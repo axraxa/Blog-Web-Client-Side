@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext, useState, useEffect } from "react"
 import { API_LINK, HOST_LINK } from "../../envVariables";
 import { AppContextContainer } from "../Context";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import Lottie from "lottie-react";
 import "../scss/Guest.scss"
 
@@ -12,6 +12,12 @@ function Login() {
   const [mail, setMail] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate("");
+  const { msg } = useParams()
+  useEffect(() => {
+    if (msg) {
+      alert(msg)
+    }
+  }, [])
   useEffect(() => {
     if (!loading) {
       if (validToken) {
@@ -40,6 +46,9 @@ function Login() {
       });
     }
   }
+  function googleLoginHandler() {
+    window.open(`${API_LINK}/user/auth/google`, "_self")
+  }
 
   if (loading) {
     return <section className="loadingScreen">
@@ -60,6 +69,12 @@ function Login() {
       </div>
       <p>{error}</p>
       <button type='submit'>Log In</button>
+      <div className="google-btn" onClick={googleLoginHandler}>
+        <div className="google-icon-wrapper">
+          <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+        </div>
+        <p className="btn-text"><b>Sign in with Google</b></p>
+      </div>
       <h5>Not signed up yet ? <Link style={{ textDecoration: "none" }} to="/register">Register</Link></h5>
     </form >
   </section>

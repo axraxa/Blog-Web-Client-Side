@@ -154,7 +154,10 @@ export default function HomePage() {
           <div className="postHeader">
             <div className="postAuthor">
               <Link to={`/user/${each.author._id}`}>
-                <img src={`${HOST_LINK}/${each.author.path}`} alt="" className="profilePic" />
+                <img
+                  src={each.author.isOauthUser ? `${each.author.path}` : `${HOST_LINK}/${each.author.path}`}
+                  className="profilePic"
+                />
               </Link>
               <h3>{each.author.name}</h3>
             </div>
